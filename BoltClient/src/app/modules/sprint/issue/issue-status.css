@@ -1,0 +1,70 @@
+.status-tag {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.status-tag-hold {
+    border-color: black;
+    color: black;
+}
+.status-tag-selected.status-tag-hold {
+    border-color: white;
+    color: white;
+    background-color: black;
+}
+
+.status-tag-backlog {
+    border-color: red;
+    color: red;
+}
+.status-tag-selected.status-tag-backlog {
+    border-color: white;
+    color: white;
+    background-color: red;
+}
+
+.status-tag-development {
+    border-color: cornflowerblue;
+    color: cornflowerblue;
+}
+.status-tag-selected.status-tag-development {
+    border-color: white;
+    color: white;
+    background-color: cornflowerblue;
+}
+
+.status-tag-staging {
+    border-color: darkblue;
+    color: darkblue;
+}
+.status-tag-selected.status-tag-staging {
+    border-color: white;
+    color: white;
+    background-color: darkblue;
+}
+
+.status-tag-testing {
+    border-color: lightseagreen;
+    color: lightseagreen;
+}
+.status-tag-selected.status-tag-testing {
+    border-color: white;
+    color: white;
+    background-color: lightseagreen;
+}
+
+.status-tag-done {
+    border-color: darkgreen;
+    color: darkgreen;
+}
+.status-tag-selected.status-tag-done {
+    border-color: white;
+    color: white;
+    background-color: darkgreen;
+}
+

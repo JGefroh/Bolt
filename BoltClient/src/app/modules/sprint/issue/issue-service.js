@@ -7,22 +7,22 @@
 
         var endpoints = {
             getIssues: function() {
-                return '../rest/issues/';
+                return './rest/issues/';
             },
             getIssue: function(id) {
-                return '../rest/issues/:id'.replace(':id', Number(id));
+                return './rest/issues/:id'.replace(':id', Number(id));
             },
             deleteIssue: function(id) {
-                return '../rest/issues/:id'.replace(':id', Number(id));
+                return './rest/issues/:id'.replace(':id', Number(id));
             },
             saveIssue: function() {
-                return '../rest/issues/'
+                return './rest/issues/'
             },
             nextStatus: function(id) {
-                return '../rest/issues/:id/status/next'.replace(':id', Number(id));
+                return './rest/issues/:id/status/next'.replace(':id', Number(id));
             },
             previousStatus: function(id) {
-                return '../rest/issues/:id/status/previous'.replace(':id', Number(id));
+                return './rest/issues/:id/status/previous'.replace(':id', Number(id));
             }
         };
 

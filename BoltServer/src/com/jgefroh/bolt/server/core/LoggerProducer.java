@@ -1,4 +1,4 @@
-package com.jgefroh.server.core;
+package com.jgefroh.bolt.server.core;
 
 import java.util.logging.Logger;
 

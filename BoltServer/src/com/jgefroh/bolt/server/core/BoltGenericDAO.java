@@ -3,8 +3,6 @@ package com.jgefroh.bolt.server.core;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.jgefroh.server.core.AbstractGenericDAO;
-
 /**
  * @author Joseph Gefroh
  */

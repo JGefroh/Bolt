@@ -7,9 +7,14 @@
                 controller: 'SprintOverviewController'
             })
             .state('sprint', {
-                url: '',
+                url: '/sprint',
                 templateUrl: 'sprint.html',
                 controller: 'SprintController'
+            })
+            .state('issue-list', {
+                url: '/issues',
+                templateUrl: 'issue-list.html',
+                controller: 'IssueListController'
             });
     }
     angular

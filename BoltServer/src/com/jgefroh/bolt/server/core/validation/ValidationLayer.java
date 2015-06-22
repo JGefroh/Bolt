@@ -1,4 +1,4 @@
-package com.jgefroh.server.core.validation;
+package com.jgefroh.bolt.server.core.validation;
 
 import java.util.Set;
 

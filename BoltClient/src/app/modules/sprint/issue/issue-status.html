@@ -1,0 +1,9 @@
+<span data-ng-bind="status"
+      data-ng-class="{'status-tag-hold': status === 'HOLD',
+                      'status-tag-backlog': status === 'BACKLOG',
+                      'status-tag-development': status === 'DEVELOPMENT',
+                      'status-tag-staging': status === 'STAGING',
+                      'status-tag-testing': status === 'TESTING',
+                      'status-tag-done': status === 'DONE',
+                      'status-tag-selected': selected}"
+      class="status-tag"></span>
