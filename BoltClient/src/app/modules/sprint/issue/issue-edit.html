@@ -1,0 +1,63 @@
+<div class="modal-header">
+    <h3 class="modal-title"
+        data-ng-bind="isNew ? 'Create Issue' : 'Edit Issue: ' + issue.issueId">
+    </h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title"
+                       data-ng-model="issue.title"
+                       class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description"
+                       data-ng-model="issue.description"
+                       class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="assignee">Assignee</label>
+                <input id="assignee"
+                       data-ng-model="issue.assignee"
+                       class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="storyPoints">Story Points</label>
+                <input id="storyPoints"
+                       type="number"
+                       data-ng-model="issue.storyPoints"
+                       class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="estimatedTime">Estimated Time</label>
+                <input id="estimatedTime"
+                       data-ng-init="fakeIssue.estimatedTimeInEnglish = (issue.estimatedTimeInMs | duration:'hh mm':true)"
+                       data-ng-model="fakeIssue.estimatedTimeInEnglish"
+                       data-ng-blur="issue.estimatedTimeInMs = (fakeIssue.estimatedTimeInEnglish | englishToMs)"
+                       class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status"
+                        data-ng-init="issue.status = issue.status ? issue.status : 'BACKLOG'"
+                        data-ng-model="issue.status"
+                        data-ng-options="status as status for status in statuses"
+                        class="form-control"></select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-link pull-left"
+            data-ng-click="cancel()">Cancel</button>
+    <button data-spinner-button
+            class="btn btn-success"
+            data-ng-click="save(issue)"
+            data-ng-disabled="operations.saveIssue.status === 'LOADING'"
+            data-loading="operations.saveIssue.status === 'LOADING'"
+            data-label="Save"
+            data-icon="fa fa-save"></button>
+</div>

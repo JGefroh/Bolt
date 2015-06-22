@@ -1,0 +1,20 @@
+/**Issues*/
+.swimlane {
+    background-color: lightgray;
+    height: 960px;
+}
+
+.swimlane .header {
+    background-color: white;
+}
+
+.swimlane .stats {
+    text-align: right;
+    cursor: pointer;
+}
+
+.swimlane .title {
+}
+
+.swimlane .issue {
+}

@@ -1,0 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url("../../modules/sprint/sprint.css");
+@import url("../../modules/sprint/issue/issue-card.css");
+@import url("../../modules/sprint/swimlane/swimlane.css");
+body {
+    font-family: 'Montserrat', sans-serif;
+}

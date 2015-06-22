@@ -1,0 +1,89 @@
+<div class="sprint">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <h1>
+                    Sprint #1: <span class="small">Joseph's Test Sprint</span>
+                    <br/>
+                    <span class="small">
+                        01/24/1991 - 01/24/9001 (9001 years)
+                    </span>
+                </h1>
+            </div>
+            <div class="col-xs-6">
+                <br/>
+                <dl class="dl-horizontal">
+                    <dt>Story Points:</dt>
+                    <dd title="{{ sprint.storyPointsIssueCount }} issues have story point estimates.">{{ (sprint.storyPointsCompleted/sprint.storyPointsEstimated) | number: 2 }}% ({{sprint.storyPointsCompleted}}/{{sprint.storyPointsEstimated}})</dd>
+                    <dt>Time Estimate:</dt>
+                    <dd title="{{ sprint.estimatedTimeInMsIssueCount }} issues have time estimates.">{{ (sprint.estimatedTimeInMsUsed/sprint.estimatedTimeInMs) | number: 2 }}% ({{sprint.estimatedTimeInMsUsed | duration:'hh mm':true}}/{{sprint.estimatedTimeInMs | duration:'hh mm':true}})</dd>
+                    <dt># Issues:</dt>
+                    <dd>{{ (sprint.issuesCompleted/sprint.issuesCount) | number: 2 }}% ({{sprint.issuesCompleted}}/{{sprint.issuesCount}})</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-success"
+                        data-edit-issue>
+                    <span class="fa fa-plus"></span> Create Issue
+                </button>
+                <button data-ng-click="endSprint()"
+                        data-popover="This will send all incomplete items to the backlog and close the sprint."
+                        data-popover-placement="left"
+                        data-popover-trigger="mouseenter"
+                        class="btn btn-xs btn-danger pull-right">
+                    <span class="fa fa-check"></span> End Sprint
+
+                </button>
+            </div>
+        </div>
+        <br/>
+        <div class="swimlanes">
+            <div class="row">
+                <div class="swimlane-column col-xs-2">
+                    <div data-swimlane
+                         data-title="On Hold"
+                         data-description="Items that developers should not work on."
+                         data-status="HOLD"
+                         data-issues="issues"></div>
+                </div>
+                <div class="swimlane-column col-xs-2">
+                    <div data-swimlane
+                         data-title="Backlog"
+                         data-description="Items that have not been started yet."
+                         data-status="BACKLOG"
+                         data-issues="issues"></div>
+                </div>
+                <div class="swimlane-column col-xs-2">
+                    <div data-swimlane
+                         data-title="Development"
+                         data-description="Items that are under active design or development."
+                         data-status="DEVELOPMENT"
+                         data-issues="issues"></div>
+                </div>
+                <div class="swimlane-column col-xs-2">
+                    <div data-swimlane
+                         data-title="Staging"
+                         data-description="Items that are ready to be tested or deployed."
+                         data-status="STAGING"
+                         data-issues="issues"></div>
+                </div>
+                <div class="swimlane-column col-xs-2">
+                    <div data-swimlane
+                         data-title="Testing"
+                         data-description="Items that are currently being tested.."
+                         data-status="TESTING"
+                         data-issues="issues"></div>
+                </div>
+                <div class="swimlane-column col-xs-2">
+                    <div data-swimlane
+                         data-title="Done"
+                         data-description="Items that have been accepted as completed."
+                         data-status="DONE"
+                         data-issues="issues"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

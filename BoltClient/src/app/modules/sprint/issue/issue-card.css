@@ -1,0 +1,22 @@
+/**Issues*/
+.issue {
+    border: 1px lightgray solid;
+    padding: 1em 1em 0.25em 1em;
+    background-color: white;
+}
+
+.issue .id {
+    font-size: 1.2em;
+}
+
+.issue .assignee {
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.issue .title {
+    font-size: 0.9em;
+    min-height: 3.5em;
+    overflow: hidden;
+    display: block;
+}

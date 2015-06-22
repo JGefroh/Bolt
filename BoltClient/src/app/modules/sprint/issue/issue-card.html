@@ -1,0 +1,63 @@
+<div class="issue">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="id"
+                  data-ng-bind="issue.issueId"></span>
+            <div class="btn-group pull-right"
+                 data-dropdown>
+                <button data-dropdown-toggle
+                        data-auto-close="always"
+                        type="button"
+                        class="btn btn-xs btn-link">
+                    <span class="fa fa-gear"></span>
+                </button>
+                <ul class="dropdown-menu"
+                    role="menu">
+                    <li>
+                        <button class="btn btn-block btn-link btn-xs"
+                                data-edit-issue
+                                data-issue="issue"
+                                style="text-align: left;">
+                            <span class="fa fa-edit fa-fw"></span> Edit...
+                        </button>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <button class="btn btn-link btn-block btn-xs"
+                                data-ng-if="issue.status !== 'DONE'"
+                                data-ng-click="nextStatus(issue)"
+                                style="text-align: left;"><span class="fa fa-arrow-right fa-fw"></span> Next Status</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-link btn-block btn-xs"
+                                data-ng-if="issue.status !== 'HOLD'"
+                                data-ng-click="previousStatus(issue)"
+                                style="text-align: left;"><span class="fa fa-arrow-left fa-fw"></span> Previous Status</button>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <button class="btn btn-link btn-block btn-xs"
+                                data-ng-click="deleteIssue(issue)"
+                                style="text-align: left;"><span class="fa fa-trash fa-fw"></span> Delete</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <span class="title"
+                  data-ng-bind="issue.title"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="badge"
+                  data-ng-if="issue.storyPoints"
+                  data-ng-bind="issue.storyPoints + ' SP'"></span>
+            <span class="badge"
+                  data-ng-if="issue.estimatedTimeInMs"
+                  data-ng-bind="issue.estimatedTimeInMs | duration:'hh mm':true"></span>
+            <span class="assignee pull-right"
+                  data-ng-bind="issue.assignee"></span>
+        </div>
+    </div>
+</div>

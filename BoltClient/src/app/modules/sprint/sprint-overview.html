@@ -1,0 +1,26 @@
+<div class="sprint-overview">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Active Sprint:</h2>
+                <span class="name" data-ng-bind="activeSprint.name"></span>
+                <span class="date" data-ng-bind="activeSprint.startDate"></span> - <span class="date" data-ng-bind="activeSprint.endDate"></span><br/>
+                <span>Issues: <span data-ng-bind="activeSprint.issueCount"></span></span><br/>
+                <span>Completed: <span data-ng-bind="activeSprint.issueCount"></span></span><br/>
+                <span>Remaining: <span data-ng-bind="activeSprint.issueCount"></span></span><br/>
+                <span>Story Points: <span data-ng-bind="activeSprint.storyPointsEstimated"></span></span><br/>
+                <span>Story Points Completed: <span data-ng-bind="activeSprint.storyPointsCompleted"></span></span><br/>
+                <span>Story Points Remaining: <span data-ng-bind="activeSprint.storyPointsRemaining"></span></span><br/>
+                <span>Estimated Hours: <span data-ng-bind="activeSprint.estimatedTimeInMs"></span></span><br/>
+                <span>Estimated Time of Completed: <span data-ng-bind="activeSprint.totalTimeCompleted"></span></span><br/>
+                <span>Actual Time Used: <span data-ng-bind="activeSprint.totalTimeRemaining"></span></span><br/>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="swimlane">
+    <div class="header">
+        <span class="title"
+              data-ng-bind="title"
+              title="{{ description }}"></span>
+        <span class="stats pull-right badge"
+              data-ng-if="settings.statType === 'SP'"
+              data-ng-bind="calculateTotalStoryPoints((issues | filter:{status: status}:true)) + ' story points'"
+              data-ng-click="nextStatType()"></span>
+        <span class="stats pull-right badge"
+              data-ng-if="settings.statType === 'TIME'"
+              data-ng-bind="calculateTotalEstimatedTime((issues | filter:{status: status}:true)) | duration:'hh mm'"
+              data-ng-click="nextStatType()"></span>
+        <span class="stats pull-right badge"
+              data-ng-if="settings.statType === 'ISSUES'"
+              data-ng-bind="(issues | filter:{status: status}:true).length +  ' issues'"
+              data-ng-click="nextStatType()"></span>
+    </div>
+    <div data-ng-repeat="issue in issues | filter:{status: status}:true">
+        <div data-issue-card
+             data-issue="issue"></div>
+    </div>
+</div>

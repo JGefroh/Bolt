@@ -1,0 +1,5 @@
+/**Issues*/
+.sprint * .swimlane-column {
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
