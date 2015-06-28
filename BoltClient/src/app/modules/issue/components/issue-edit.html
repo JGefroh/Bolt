@@ -19,6 +19,14 @@
                        class="form-control"></textarea>
             </div>
             <div class="form-group">
+                <label for="status">Type</label>
+                <select id="type"
+                        data-ng-init="issue.type = issue.type ? issue.type : 'Feature'"
+                        data-ng-model="issue.type"
+                        data-ng-options="type.label as type.label for type in issueTypes"
+                        class="form-control"></select>
+            </div>
+            <div class="form-group">
                 <label for="assignee">Assignee</label>
                 <input id="assignee"
                        data-ng-model="issue.assignee"
@@ -34,7 +42,7 @@
             <div class="form-group">
                 <label for="estimatedTime">Estimated Time</label>
                 <input id="estimatedTime"
-                       data-ng-init="fakeIssue.estimatedTimeInEnglish = (issue.estimatedTimeInMs | duration:'hh mm':true)"
+                       data-ng-init="fakeIssue.estimatedTimeInEnglish = ((issue.estimatedTimeInMs ? issue.estimatedTimeInMs : 0) | duration:'hh mm':true)"
                        data-ng-model="fakeIssue.estimatedTimeInEnglish"
                        data-ng-blur="issue.estimatedTimeInMs = (fakeIssue.estimatedTimeInEnglish | englishToMs)"
                        class="form-control"/>
@@ -44,7 +52,7 @@
                 <select id="status"
                         data-ng-init="issue.status = issue.status ? issue.status : 'BACKLOG'"
                         data-ng-model="issue.status"
-                        data-ng-options="status as status for status in statuses"
+                        data-ng-options="status.value as status.label for status in statuses"
                         class="form-control"></select>
             </div>
         </div>

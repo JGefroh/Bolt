@@ -1,6 +1,24 @@
 <div class="issue">
     <div class="row">
         <div class="col-xs-12">
+            <span class="title"
+                  data-ng-bind="issue.title"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="badge"
+                  data-ng-if="issue.storyPoints"
+                  data-ng-bind="issue.storyPoints + ' SP'"></span>
+            <span class="badge"
+                  data-ng-if="issue.estimatedTimeInMs"
+                  data-ng-bind="issue.estimatedTimeInMs | duration:'hh mm':true"></span>
+            <span class="assignee pull-right"
+                  data-ng-bind="issue.assignee"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
             <span class="id"
                   data-ng-bind="issue.issueId"></span>
             <div class="btn-group pull-right"
@@ -42,22 +60,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="col-xs-12">
-            <span class="title"
-                  data-ng-bind="issue.title"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <span class="badge"
-                  data-ng-if="issue.storyPoints"
-                  data-ng-bind="issue.storyPoints + ' SP'"></span>
-            <span class="badge"
-                  data-ng-if="issue.estimatedTimeInMs"
-                  data-ng-bind="issue.estimatedTimeInMs | duration:'hh mm':true"></span>
-            <span class="assignee pull-right"
-                  data-ng-bind="issue.assignee"></span>
         </div>
     </div>
 </div>

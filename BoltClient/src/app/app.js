@@ -7,7 +7,7 @@ angular
         'ui.router',
         'ui.bootstrap',
         'jgefroh.filters',
-        'Bolt.Sprint'
+        'Bolt.Issues'
     ]);
 angular
     .module('Bolt')

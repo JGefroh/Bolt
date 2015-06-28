@@ -6,12 +6,13 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.jgefroh.bolt.server.data.Status;
+
 
 @Stateless
 public class IssueManager {
     @Inject private IssueDAO issueDAO;
     @Inject private IssueIdGenerator issueIdGenerator;
-    private static final List<String> STATUS = Arrays.asList("HOLD", "BACKLOG", "DEVELOPMENT", "STAGING", "TESTING", "DONE");
     
     public Issue save(final Issue issue) {
         if (isNew(issue)) {
@@ -37,7 +38,7 @@ public class IssueManager {
         if (existingIssue == null || !isMatch(existingIssue.getProjectUUID(), issue.getProjectUUID())) {
             throw new IllegalArgumentException("Unable to create Issue.");
         };
-        existingIssue.update(issue.getTitle(), issue.getDescription(), issue.getAssignee(), issue.getStoryPoints(), issue.getEstimatedTimeInMs(), issue.getStatus());
+        existingIssue.update(issue);
         return existingIssue;
     }
     
@@ -68,18 +69,20 @@ public class IssueManager {
 
     public Issue nextStatus(int issueId) {
         Issue issue = issueDAO.get(Issue.class, issueId);
-        int statusPosition = STATUS.indexOf(issue.getStatus());
-        if (statusPosition != STATUS.size() - 1 && statusPosition != -1) {
-            issue.setStatus(STATUS.get(statusPosition + 1));
+        Status status = Status.valueOf(issue.getStatus());
+        int statusPosition = status.ordinal();
+        if (statusPosition != Status.values().length - 1 && statusPosition != -1) {
+            issue.setStatus(Status.values()[statusPosition + 1].getValue());
         }
         return issue;
     }
 
     public Issue previousStatus(int issueId) {
         Issue issue = issueDAO.get(Issue.class, issueId);
-        int statusPosition = STATUS.indexOf(issue.getStatus());
-        if (statusPosition != 0 && statusPosition != -1) {
-            issue.setStatus(STATUS.get(statusPosition - 1));
+        Status status = Status.valueOf(issue.getStatus());
+        int statusPosition = status.ordinal();
+        if (statusPosition != 0) {
+            issue.setStatus(Status.values()[statusPosition - 1].getValue());
         }
         return issue;
     }

@@ -1,0 +1,99 @@
+<div class="sprint">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-success"
+                        data-edit-issue>
+                    <span class="fa fa-plus"></span> Create Issue
+                </button>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-xs-9">
+                <span data-issue-status data-status="'HOLD'" data-selected="isStatusSelected('HOLD')" data-ng-click="toggleStatus('HOLD');"></span>
+                <span data-issue-status data-status="'BACKLOG'" data-selected="isStatusSelected('BACKLOG')" data-ng-click="toggleStatus('BACKLOG');"></span>
+                <span data-issue-status data-status="'DEVELOPMENT'" data-selected="isStatusSelected('DEVELOPMENT')" data-ng-click="toggleStatus('DEVELOPMENT');"></span>
+                <span data-issue-status data-status="'STAGING'" data-selected="isStatusSelected('STAGING')" data-ng-click="toggleStatus('STAGING');"></span>
+                <span data-issue-status data-status="'TESTING'" data-selected="isStatusSelected('TESTING')" data-ng-click="toggleStatus('TESTING');"></span>
+                <span data-issue-status data-status="'DONE'" data-selected="isStatusSelected('DONE')" data-ng-click="toggleStatus('DONE');"></span>
+            </div>
+            <div class="col-xs-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-filter"></span></span>
+                    <input data-ng-model="viewState.filter"
+                           class="form-control input-sm"
+                           maxlength="500"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-striped table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Actions</th>
+                            <th>Id</th>
+                            <th class="col-xs-2">Type</th>
+                            <th class="col-xs-4">Title</th>
+                            <th class="col-xs-2 text-center">Status</th>
+                            <th class="col-xs-2">Assignee</th>
+                            <th class="col-xs-1">Story Points</th>
+                            <th class="col-xs-1">Estimated Time</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="issue in (data.issues | filter:hasStatus | filter:viewState.filter) track by issue.id">
+                            <td>
+                                <button class="btn btn-primary btn-block btn-xs"
+                                        data-edit-issue
+                                        data-issue="issue">
+                                    <span class="fa fa-fw fa-edit"></span> Edit
+                                </button>
+                            </td>
+                            <td data-ng-bind="issue.issueId"></td>
+                            <td data-ng-bind="issue.type"></td>
+                            <td>
+                                <span data-ng-bind="issue.title"></span>
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group"
+                                     data-dropdown>
+                                    <span data-issue-status
+                                          data-dropdown-toggle
+                                          data-status="issue.status"
+                                          data-selected="isStatusSelected(issue.status)"></span>
+                                    <ul class="dropdown-menu"
+                                        role="menu">
+                                        <li><button class="btn btn-default btn-xs btn-block" data-ng-bind="'HOLD'" data-ng-click="changeStatusTo(issue, 'HOLD')"></button></li>
+                                        <li><button class="btn btn-default btn-xs btn-block" data-ng-bind="'BACKLOG'" data-ng-click="changeStatusTo(issue, 'BACKLOG')"></button></li>
+                                        <li><button class="btn btn-default btn-xs btn-block" data-ng-bind="'DEVELOPMENT'" data-ng-click="changeStatusTo(issue, 'DEVELOPMENT')"></button></li>
+                                        <li><button class="btn btn-default btn-xs btn-block" data-ng-bind="'STAGING'" data-ng-click="changeStatusTo(issue, 'STAGING')"></button></li>
+                                        <li><button class="btn btn-default btn-xs btn-block" data-ng-bind="'TESTING'" data-ng-click="changeStatusTo(issue, 'TESTING')"></button></li>
+                                        <li><button class="btn btn-default btn-xs btn-block" data-ng-bind="'DONE'" data-ng-click="changeStatusTo(issue, 'DONE')"></button></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <div data-change-assignee-dropdown
+                                     data-issue="issue"></div>
+                            </td>
+                            <td data-ng-bind="issue.storyPoints"></td>
+                            <td data-ng-bind="issue.estimatedTimeInMs | duration:'hh mm':true"></td>
+                            <td>
+                                <button data-ng-click="deleteIssue(issue)"
+                                        class="btn btn-danger btn-xs btn-block">
+                                    <span class="fa fa-fw fa-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

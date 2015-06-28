@@ -21,6 +21,7 @@ public class Issue {
     private Integer storyPoints;
     private Long estimatedTimeInMs;
     private String projectUUID;
+    private String type;
     
 
     public static Issue create(final Issue issueFields) {
@@ -32,17 +33,19 @@ public class Issue {
         issue.setEstimatedTimeInMs(issueFields.getEstimatedTimeInMs());
         issue.setStoryPoints(issueFields.getStoryPoints());
         issue.setStatus(issueFields.getStatus() ==  null ? "BACKLOG" : issueFields.getStatus());
+        issue.setType(issueFields.getType());
         return issue;
     }
 
 
-    public void update(final String title, final String description, final String assignee, final Integer storyPoints, final Long estimatedTimeInMs, final String status) {
-        setTitle(title);
-        setDescription(description);
-        setAssignee(assignee);
-        setStoryPoints(storyPoints);
-        setEstimatedTimeInMs(estimatedTimeInMs);
-        setStatus(status);
+    public void update(final Issue issueFields) {
+        setTitle(issueFields.getTitle());
+        setDescription(issueFields.getDescription());
+        setAssignee(issueFields.getAssignee());
+        setStoryPoints(issueFields.getStoryPoints());
+        setEstimatedTimeInMs(issueFields.getEstimatedTimeInMs());
+        setStatus(issueFields.getStatus());
+        setType(issueFields.getType());
     }
             
     public Integer getStoryPoints() {
@@ -119,5 +122,14 @@ public class Issue {
     
     public void setProjectUUID(String projectUUID) {
         this.projectUUID = projectUUID;
+    }
+    
+    
+    public String getType() {
+        return type;
+    }
+    
+    public void setType(String type) {
+        this.type = type;
     }
 }

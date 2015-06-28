@@ -1,16 +1,7 @@
-<div class="sprint">
+<div class="issue-swimlanes">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-6">
-                <h1>
-                    Sprint #1: <span class="small">Joseph's Test Sprint</span>
-                    <br/>
-                    <span class="small">
-                        01/24/1991 - 01/24/9001 (9001 years)
-                    </span>
-                </h1>
-            </div>
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <br/>
                 <dl class="dl-horizontal">
                     <dt>Story Points:</dt>
@@ -28,14 +19,6 @@
                         data-edit-issue>
                     <span class="fa fa-plus"></span> Create Issue
                 </button>
-                <button data-ng-click="endSprint()"
-                        data-popover="This will send all incomplete items to the backlog and close the sprint."
-                        data-popover-placement="left"
-                        data-popover-trigger="mouseenter"
-                        class="btn btn-xs btn-danger pull-right">
-                    <span class="fa fa-check"></span> End Sprint
-
-                </button>
             </div>
         </div>
         <br/>
@@ -46,42 +29,42 @@
                          data-title="On Hold"
                          data-description="Items that developers should not work on."
                          data-status="HOLD"
-                         data-issues="issues"></div>
+                         data-issues="data.issues"></div>
                 </div>
                 <div class="swimlane-column col-xs-2">
                     <div data-swimlane
                          data-title="Backlog"
                          data-description="Items that have not been started yet."
                          data-status="BACKLOG"
-                         data-issues="issues"></div>
+                         data-issues="data.issues"></div>
                 </div>
                 <div class="swimlane-column col-xs-2">
                     <div data-swimlane
                          data-title="Development"
                          data-description="Items that are under active design or development."
                          data-status="DEVELOPMENT"
-                         data-issues="issues"></div>
+                         data-issues="data.issues"></div>
                 </div>
                 <div class="swimlane-column col-xs-2">
                     <div data-swimlane
                          data-title="Staging"
                          data-description="Items that are ready to be tested or deployed."
                          data-status="STAGING"
-                         data-issues="issues"></div>
+                         data-issues="data.issues"></div>
                 </div>
                 <div class="swimlane-column col-xs-2">
                     <div data-swimlane
                          data-title="Testing"
                          data-description="Items that are currently being tested.."
                          data-status="TESTING"
-                         data-issues="issues"></div>
+                         data-issues="data.issues"></div>
                 </div>
                 <div class="swimlane-column col-xs-2">
                     <div data-swimlane
                          data-title="Done"
                          data-description="Items that have been accepted as completed."
                          data-status="DONE"
-                         data-issues="issues"></div>
+                         data-issues="data.issues"></div>
                 </div>
             </div>
         </div>

@@ -25,6 +25,6 @@
         }
     }
     angular
-        .module('Bolt.Sprint')
+        .module('Bolt.Issues')
         .directive('issueCard', Directive);
 })();

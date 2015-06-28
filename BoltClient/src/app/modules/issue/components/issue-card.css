@@ -6,7 +6,6 @@
 }
 
 .issue .id {
-    font-size: 1.2em;
 }
 
 .issue .assignee {
@@ -15,7 +14,6 @@
 }
 
 .issue .title {
-    font-size: 0.9em;
     min-height: 3.5em;
     overflow: hidden;
     display: block;

@@ -1,13 +1,8 @@
 (function() {
-    function Controller($scope, $modal,
+    function Controller($scope, $modal, $filter,
                         IssueService) {
         function initialize() {
-            $scope.$watch('issues', function(issues) {
-            }, true);
-
-            IssueService.getIssues().then(function(issues) {
-                $scope.issues = issues;
-            });
+            $scope.data = IssueService.data;
             $scope.filteredStatuses = [];
         }
 
@@ -22,6 +17,16 @@
             else {
                 $scope.filteredStatuses.splice($scope.filteredStatuses.indexOf(status), 1);
             }
+        };
+
+        $scope.changeStatusTo = function(issue, status) {
+            var oldStatus = issue.status;
+            issue.status = status;
+            IssueService.saveIssue(issue).then(function(savedIssue) {
+                angular.copy(savedIssue, issue);
+            }).catch(function() {
+                issue.status = oldStatus;
+            });
         };
 
         $scope.isStatusSelected = function(status) {
@@ -45,8 +50,8 @@
         initialize();
     }
     angular
-        .module('Bolt.Sprint')
-        .controller('IssueListController', ['$scope', '$modal',
+        .module('Bolt.Issues')
+        .controller('IssueListController', ['$scope', '$modal', '$filter',
                                             'IssueService',
                                             Controller]);
 })();

@@ -32,6 +32,6 @@
         }
     }
     angular
-        .module('Bolt.Sprint')
+        .module('Bolt.Issues')
         .directive('editIssue', ['$modal', Directive]);
 })();

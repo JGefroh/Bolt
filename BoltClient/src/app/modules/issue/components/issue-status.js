@@ -15,6 +15,6 @@
         }
     }
     angular
-        .module('Bolt.Sprint')
+        .module('Bolt.Issues')
         .directive('issueStatus', Directive);
 })();

@@ -7,14 +7,12 @@
                 saveIssue: {}
             };
 
-            $scope.statuses = [
-                'HOLD',
-                'BACKLOG',
-                'DEVELOPMENT',
-                'STAGING',
-                'TESTING',
-                'DONE'
-            ];
+            IssueService.getStatuses().then(function(statuses) {
+                $scope.statuses = statuses;
+            });
+            IssueService.getIssueTypes().then(function(issueTypes) {
+                $scope.issueTypes = issueTypes;
+            });
 
             if (data) {
                 if (data.issue) {
@@ -42,7 +40,7 @@
         initialize();
     }
     angular
-        .module('Bolt.Sprint')
+        .module('Bolt.Issues')
         .controller('IssueEditController', ['$scope', '$modalInstance',
                                             'IssueService',
                                             'data',

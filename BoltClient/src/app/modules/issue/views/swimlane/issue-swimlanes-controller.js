@@ -2,17 +2,11 @@
     function Controller($scope, $modal,
                         IssueService) {
         function initialize() {
-            $scope.$watch('issues', function(issues) {
+            $scope.$watch('data.issues', function(issues) {
                 updateSprintStats(issues);
             }, true);
-
-            IssueService.getIssues().then(function(issues) {
-                $scope.issues = issues;
-            });
+            $scope.data = IssueService.data;
         }
-
-        $scope.endSprint = function() {
-        };
 
         function updateSprintStats(issues) {
             $scope.sprint = {
@@ -48,8 +42,8 @@
         initialize();
     }
     angular
-        .module('Bolt.Sprint')
-        .controller('SprintController', ['$scope', '$modal',
+        .module('Bolt.Issues')
+        .controller('IssueSwimlanesController', ['$scope', '$modal',
                                          'IssueService',
                                           Controller]);
 })();

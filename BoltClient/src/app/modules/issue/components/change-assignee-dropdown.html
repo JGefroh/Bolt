@@ -1,0 +1,14 @@
+<div class="btn-group"
+     data-dropdown>
+     <span data-dropdown-toggle
+           data-ng-bind="issue.assignee"
+           style="cursor:pointer;"></span>
+     <ul class="dropdown-menu"
+         role="menu">
+         <li data-ng-repeat="assignee in assignees | orderBy:'count':true | limitTo:5">
+             <button class="btn btn-default btn-xs btn-block"
+                     data-ng-bind="assignee"
+                     data-ng-click="changeAssigneeTo(issue, assignee)"></button>
+         </li>
+     </ul>
+</div>

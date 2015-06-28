@@ -26,6 +26,6 @@
         }
     }
     angular
-        .module('Bolt.Sprint')
+        .module('Bolt.Issues')
         .service('SwimlaneService', [Service]);
 })();

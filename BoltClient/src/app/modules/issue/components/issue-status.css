@@ -1,11 +1,7 @@
 .status-tag {
-    border-width: 1px 1px 1px 1px;
-    border-style: solid;
-    border-radius: 4px;
-    padding: 0.5em;
-    text-align: center;
+    background-color: white;
     font-size: 0.8em;
-    cursor: pointer;
+    width: 10em;
 }
 
 .status-tag-hold {

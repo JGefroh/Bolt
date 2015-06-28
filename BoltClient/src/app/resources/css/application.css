@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url("../../modules/sprint/sprint.css");
-@import url("../../modules/sprint/issue/issue-card.css");
-@import url("../../modules/sprint/issue/issue-status.css");
-@import url("../../modules/sprint/swimlane/swimlane.css");
+@import url("../../modules/issue/views/swimlane/issue-swimlanes.css");
+@import url("../../modules/issue/components/issue-card.css");
+@import url("../../modules/issue/components/issue-status.css");
+@import url("../../modules/issue/components/swimlane.css");
 body {
     font-family: 'Montserrat', sans-serif;
 }

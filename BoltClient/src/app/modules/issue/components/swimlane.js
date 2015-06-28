@@ -42,6 +42,6 @@
         }
     }
     angular
-        .module('Bolt.Sprint')
+        .module('Bolt.Issues')
         .directive('swimlane', [Directive]);
 })();
