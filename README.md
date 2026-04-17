@@ -1,5 +1,9 @@
 Bolt
 ===
+
+In 2026, I re-wrote it - https://github.com/JGefroh/bolt-vue.
+
+----
 Bolt is a lightweight, opinionated sprint planning and tracking tool. By providing only the bare features needed to plan and track a sprint, Bolt makes it easy for you to get a sense of your project's status.
 
 
